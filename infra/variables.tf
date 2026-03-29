@@ -160,7 +160,7 @@ locals {
   cidr_prefix   = "${local.cidr_ip_parts[0]}.${local.cidr_ip_parts[1]}"
   vpcs = {
     security_vpc = {
-      name                             = "${var.name_prefix}"
+      name                             = "security-vpc"
       cidr                             = "${var.cidr}"
       assign_generated_ipv6_cidr_block = false
       nacls                            = {}

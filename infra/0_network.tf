@@ -5,7 +5,7 @@ module "vpc" {
 
   for_each = local.vpcs
 
-  name                             = "${var.name_prefix}${each.value.name}"
+  name                             = "${var.name_prefix}-${each.value.name}"
   cidr_block                       = each.value.cidr
   assign_generated_ipv6_cidr_block = each.value.assign_generated_ipv6_cidr_block
   nacls                            = each.value.nacls
