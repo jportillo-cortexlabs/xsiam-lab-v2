@@ -1,8 +1,8 @@
-name: Deployment aws-demo-attack-lab-v2
+name: Deployment xsiam-lab
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
