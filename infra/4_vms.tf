@@ -54,7 +54,7 @@ resource "aws_instance" "vms" {
   }
 
   lifecycle {
-    ignore_changes = [each.value.ami]
+    ignore_changes = [ami]
   }
 
   tags = merge(
