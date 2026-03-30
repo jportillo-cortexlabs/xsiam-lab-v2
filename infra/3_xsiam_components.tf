@@ -3,7 +3,6 @@ module "broker_vm" {
   source = "./modules/broker_vm"
   name_prefix = var.name_prefix
   global_tags = var.global_tags
-  artifact = var.broker_vm_key
 }
 
 # Ubuntu 22.04 oficial de Canonical
