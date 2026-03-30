@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "broker_vm" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "broker_vm" {
-  bucket = aws_s3_bucket.broker_vm[0].id
+  bucket = aws_s3_bucket.broker_vm.id
 
   rule {
     apply_server_side_encryption_by_default {
@@ -25,7 +25,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "broker_vm" {
 }
 
 resource "aws_s3_bucket_public_access_block" "broker_vm" {
-  bucket = aws_s3_bucket.broker_vm[0].id
+  bucket = aws_s3_bucket.broker_vm.id
 
   block_public_acls       = true
   block_public_policy     = true
