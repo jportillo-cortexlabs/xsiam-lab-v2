@@ -26,7 +26,7 @@ locals {
       ami     = local.broker_ami_id
       type    = "t3.xlarge"
       user    = "ubuntu"
-      volume = 512
+      volume  = 512
       network = { subnet = var.broker_vm_subnet, public_ip = false } # Always Public IP is FALSE
     }
     "${var.name_prefix}-engine" = {
@@ -34,7 +34,7 @@ locals {
       ami     = local.engine_ami_id
       type    = "t3.xlarge"
       user    = "ubuntu"
-      volume = 100
+      volume  = 100
       network = { subnet = var.engine_vm_subnet, public_ip = false } # Always Public IP is FALSE
     }
   }
