@@ -29,13 +29,17 @@
 #   value       = { for k, v in module.vmseries : k => v.public_ips }
 # }
 
+# output "subnets" {
+#   value = module.subnet_sets["${var.vpc_name}-${var.name_prefix}-${var.broker_vm_subnet}"]
+# }
+
 output "fw_interfaces" {
-  value = module.vmseries["vmseries-01"].interfaces
+  value = local.fw_interfaces
 }
 
-output "route_tables" {
-  value = module.subnet_sets.route_tables
-}
+# output "route_tables" {
+#   value = module.subnet_sets["${var.vpc_name}-${var.name_prefix}-${var.broker_vm_subnet}"]
+# }
 
 output "broker_vm_bucket_name" {
   value = var.broker_vm ? module.broker_vm[0].broker_vm_bucket_name : null

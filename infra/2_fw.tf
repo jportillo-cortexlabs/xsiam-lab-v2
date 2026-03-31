@@ -92,6 +92,13 @@ resource "aws_iam_role_policy" "this" {
 EOF
 }
 
+locals {
+  fw_interfaces = {
+    for k, v in module.vmseries :
+    k => v.interfaces
+  }
+}
+
 ### ROUTES ###
 
 # locals {
