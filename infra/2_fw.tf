@@ -103,23 +103,25 @@ locals {
     k => {
       for iface_key, iface in v :
       iface_key => iface.id
+      if strcontains(iface_key, "vlan")
     }
   }
+
   fw_route_tables = [
     for k, v in module.subnet_sets :
     v
-    if !strcontains(k, "mgmt")
+    if strcontains(k, "vlan")
   ]
 
   fw_default_routes = merge([
     for fw_name, eni_map in local.fw_interfaces : merge([
-      for rt_name, rt_data in local.fw_route_tables : {
+      for rt_data in local.fw_route_tables : {
         for az, rt_id in rt_data.unique_route_table_ids :
-        "${fw_name}-${rt_name}-${az}" => {
+        "${fw_name}-${rt_data.subnet_names[az]}-${az}" => {
           route_table_id = rt_id
-          eni_id         = eni_map[regex("vlan[0-9]+", rt_name)]
+          eni_id         = eni_map[regex("vlan[0-9]+", rt_data.subnet_names[az])]
         }
-        if can(eni_map[regex("vlan[0-9]+", rt_name)])
+        if can(eni_map[regex("vlan[0-9]+", rt_data.subnet_names[az])])
       }
     ]...)
   ]...)
