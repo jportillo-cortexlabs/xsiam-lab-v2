@@ -63,6 +63,16 @@ Create the following:
 - `AWS_REGION`
 - `S3_BACKEND`
 
+### Palo Alto VM-Series
+
+### Palo Alto VM-Series
+
+You will need an **AuthCode** for VM-Series on your CSP.
+
+Navigate to [`infra/files/license/authcodes`](https://github.com/davidaavilar/xsiam-lab-v2/blob/main/infra/files/license/authcodes)
+
+Paste your AuthCode in that location before deployment.
+
 ---
 
 ## Repository Structure
