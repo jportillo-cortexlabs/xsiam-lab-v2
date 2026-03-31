@@ -30,7 +30,7 @@
 # }
 
 output "subnets" {
-  value = module.vmseries.interfaces
+  value = module.vmseries["vmseries-01"].interfaces
 }
 
 output "broker_vm_bucket_name" {
