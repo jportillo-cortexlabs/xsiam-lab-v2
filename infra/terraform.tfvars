@@ -3,7 +3,7 @@
 create_public_ip_mgmt = true # Change to true first time. After FW successful boot, modify it to false
 
 ### VPC
-cidr           = "10.10.0.0/16"
+cidr           = "10.20.0.0/16"
 
 ### XSIAM Components
 
